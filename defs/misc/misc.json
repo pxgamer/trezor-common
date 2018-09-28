@@ -83,5 +83,13 @@
             "Homepage": "https://wanchain.org",
             "Github": "https://github.com/wanchain/go-wanchain"
         }
+    },
+    {
+        "name": "Arionum",
+        "shortcut": "ARO",
+        "links": {
+            "Homepage": "https://www.arionum.com",
+            "Github": "https://github.com/arionum/node"
+        }
     }
 ]
