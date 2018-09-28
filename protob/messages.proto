@@ -229,4 +229,10 @@ enum MessageType {
     MessageType_MoneroWatchKey = 543 [(wire_out) = true];
     MessageType_DebugMoneroDiagRequest = 546 [(wire_in) = true];
     MessageType_DebugMoneroDiagAck = 547 [(wire_out) = true];
+
+    // Arionum
+    MessageType_ArionumGetAddress = 600 [(wire_in) = true];
+    MessageType_ArionumAddress = 601 [(wire_out) = true];
+    MessageType_ArionumSignTx = 602 [(wire_in) = true];
+    MessageType_ArionumSignedTx = 603 [(wire_in) = true];
 }
