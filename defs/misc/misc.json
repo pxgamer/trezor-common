@@ -87,6 +87,7 @@
     {
         "name": "Arionum",
         "shortcut": "ARO",
+        "slip44": "504850",
         "curve": "secp256k1",
         "links": {
             "Homepage": "https://www.arionum.com",
