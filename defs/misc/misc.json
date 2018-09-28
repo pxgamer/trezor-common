@@ -87,6 +87,7 @@
     {
         "name": "Arionum",
         "shortcut": "ARO",
+        "curve": "secp256k1",
         "links": {
             "Homepage": "https://www.arionum.com",
             "Github": "https://github.com/arionum/node"
