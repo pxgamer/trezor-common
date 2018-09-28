@@ -30,9 +30,27 @@ message ArionumAddress {
  */
 message ArionumSignTx {
     repeated uint32 address_n = 1; // BIP-32 path. For compatibility with other wallets, must be m/44'/144'/index'
-    optional uint64 fee = 2; // Fee for the transaction
-    optional uint32 flags = 3; // Transaction flags
-    optional uint32 sequence = 4; // Transaction sequence number
+    optional ArionumTransaction transaction = 2; // The Arionum transaction structure
+
+    /**
+     * Standard transaction type
+     */
+    message ArionumTransaction {
+        optional float val = 1;
+        optional float fee = 2;
+        optional string dst = 3;
+        optional string message = 4;
+        optional uint64 version = 5;
+        optional string public_key = 6;
+        optional uint64 date = 7;
+
+        /**
+         * Type of Arionum transaction
+         */
+        enum ArionumTransactionType {
+            Transfer = 1;
+        }
+    }
 }
 
 /**
@@ -41,5 +59,4 @@ message ArionumSignTx {
  */
 message ArionumSignedTx {
     optional bytes signature = 1;
-    optional bytes serialized_tx = 2;
 }
