@@ -1,0 +1,45 @@
+syntax = "proto2";
+package hw.trezor.messages.arionum;
+
+// Sugar for easier handling in Java
+option java_package = "com.satoshilabs.trezor.lib.protobuf";
+option java_outer_classname = "TrezorMessageArionum";
+
+/**
+ * Request: Address at the specified index
+ * @start
+ * @next ArionumAddress
+ */
+message ArionumGetAddress {
+    repeated uint32 address_n = 1; // BIP-32 path. For compatibility with other wallets, must be m/44'/144'/index'
+    optional bool show_display = 2; // Optionally show on display before sending the result
+}
+
+/**
+ * Response: Address for the given index
+ * @end
+ */
+message ArionumAddress {
+    optional string address = 1; // Address in Arionum format (base58 of a pubkey with checksum)
+}
+
+/**
+ * Request: Ask device to sign Arionum transaction
+ * @start
+ * @next ArionumSignedTx
+ */
+message ArionumSignTx {
+    repeated uint32 address_n = 1; // BIP-32 path. For compatibility with other wallets, must be m/44'/144'/index'
+    optional uint64 fee = 2; // Fee for the transaction
+    optional uint32 flags = 3; // Transaction flags
+    optional uint32 sequence = 4; // Transaction sequence number
+}
+
+/**
+ * Response: Signature for transaction
+ * @end
+ */
+message ArionumSignedTx {
+    optional bytes signature = 1;
+    optional bytes serialized_tx = 2;
+}
