@@ -234,5 +234,6 @@ enum MessageType {
     MessageType_ArionumGetAddress = 600 [(wire_in) = true];
     MessageType_ArionumAddress = 601 [(wire_out) = true];
     MessageType_ArionumSignTx = 602 [(wire_in) = true];
-    MessageType_ArionumSignedTx = 603 [(wire_in) = true];
+    MessageType_ArionumGetPublicKey = 603 [(wire_in) = true];
+    MessageType_ArionumPublicKey = 604 [(wire_out) = true];
 }
