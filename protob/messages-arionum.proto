@@ -6,6 +6,24 @@ option java_package = "com.satoshilabs.trezor.lib.protobuf";
 option java_outer_classname = "TrezorMessageArionum";
 
 /**
+ * Request: Ask device for Arionum public key corresponding to address_n path
+ * @start
+ * @next ArionumPublicKey
+ */
+message ArionumGetPublicKey {
+    repeated uint32 address_n = 1;  // BIP-32 path to derive the key from master node
+    optional bool show_display = 2; // Optionally show on display before sending the result
+}
+
+/**
+ * Response: Contains Arionum public key derived from device private seed
+ * @end
+ */
+message ArionumPublicKey {
+    optional bytes public_key = 1;  // Ontology public key
+}
+
+/**
  * Request: Address at the specified index
  * @start
  * @next ArionumAddress
